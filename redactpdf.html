@@ -202,6 +202,14 @@ document.getElementById('btn-download').onclick = async function() {
   setProgress(0, 'Starting…');
   try {
     var newDoc = await PDFLib.PDFDocument.create();
+    newDoc.setTitle('');
+    newDoc.setAuthor('');
+    newDoc.setSubject('');
+    newDoc.setKeywords([]);
+    newDoc.setProducer('');
+    newDoc.setCreator('');
+    newDoc.setCreationDate(new Date(0));
+    newDoc.setModificationDate(new Date(0));
     var totalPages = pdfDoc.numPages;
     var offscreen = document.createElement('canvas');
     var offCtx = offscreen.getContext('2d');
